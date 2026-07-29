@@ -6,37 +6,103 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        return "Menampilkan halaman daftar siswa";
+        $title = "Sistem Sekolah - Daftar Siswa";
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '22100001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ',
+            ],
+
+            [
+                'id' => 2,
+                'nis' => '22100002',
+                'name' => 'Budi',
+                'class' => 'XII AKL 1',
+                'major' => 'AKL',
+            ],
+        ];
+
+        return view('Students.index', [
+            'title' => $title,
+            'students' => $students
+        ]);
     }
 
-    public function create(Request $request)
+    public function create()
     {
-        return "Menampilkan halaman tambah siswa";
+        return view('Students.create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
         return "Melakukan penambahan data siswa";
     }
 
-    public function show(Request $request, $id)
+    public function show(string $id)
     {
-        return "Menampilkan siswa dengan ID: {$id}";
+        $title = "Sistem Sekolah - Detail Siswa";
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '22100001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ',
+            ],
+
+            [
+                'id' => 2,
+                'nis' => '22100002',
+                'name' => 'Budi',
+                'class' => 'XII AKL 1',
+                'major' => 'AKL',
+            ],
+        ];
+
+        return view('Students.show', [
+            'title' => $title,
+            'students' => $students
+        ]);
     }
 
-    public function edit(Request $request, $id)
+    public function edit(string $id)
     {
-        return "Menampilkan halaman edit siswa dengan ID: {$id}";
+        $title = "Sistem Sekolah - Ubah Siswa";
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '22100001',
+                'name' => 'Andi',
+                'class' => 'XII TKJ 3',
+                'major' => 'TKJ',
+            ],
+
+            [
+                'id' => 2,
+                'nis' => '22100002',
+                'name' => 'Budi',
+                'class' => 'XII AKL 1',
+                'major' => 'AKL',
+            ],
+        ];
+
+        return view('Students.edit', [
+            'title' => $title,
+            'students' => $students
+        ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(string $id)
     {
         return "Melakukan perubahan data siswa dengan ID: {$id}";
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy(string $id)
     {
         return "Menghapus data siswa dengan ID: {$id}";
     }

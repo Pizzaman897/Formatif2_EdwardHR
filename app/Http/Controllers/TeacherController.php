@@ -6,37 +6,37 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         return "Menampilkan halaman daftar guru";
     }
 
-    public function create(Request $request)
+    public function create()
     {
         return "Menampilkan halaman tambah guru";
     }
 
-    public function store(Request $request)
+    public function store()
     {
         return "Melakukan penambahan data guru";
     }
 
-    public function show(Request $request, $id)
+    public function show(string $id)
     {
         return "Menampilkan guru dengan ID: {$id}";
     }
 
-    public function edit(Request $request, $id)
+    public function edit(string $id)
     {
         return "Menampilkan halaman edit guru dengan ID: {$id}";
     }
 
-    public function update(Request $request, $id)
+    public function update(string $id)
     {
         return "Melakukan perubahan data guru dengan ID: {$id}";
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy(string $id)
     {
         return "Menghapus data guru dengan ID: {$id}";
     }
