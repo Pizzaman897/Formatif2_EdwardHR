@@ -41,7 +41,7 @@ Route::name('teachers.')->prefix('teachers')->group(function () {
 Route::resource('majors', MajorController::class);
 
 //Manajemen kelas
-Route::name('classes.')->prefix('c  lasses')->group(function () {
+Route::name('classes.')->prefix('classes')->group(function () {
     Route::get('/', IndexController::class)->name('index');
     Route::get('/create', CreateController::class)->name('create');
     Route::post('/', StoreController::class)->name('store');

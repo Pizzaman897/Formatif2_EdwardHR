@@ -8,12 +8,40 @@ class TeacherController extends Controller
 {
     public function index()
     {
-        return "Menampilkan halaman daftar guru";
+        $title = 'Sistem Sekolah - Daftar Guru';
+        $teachers = [
+        [
+            'id' => 1,
+            'nip' => '198501012024',
+            'name' => 'Budi Santoso',
+            'gender' => 'Laki-Laki',
+            'subject' => 'Akuntansi Dasar',
+            'phone' => '081234560001',
+            'status' => 'Aktif',
+        ],
+        [
+            'id' => 2,
+            'nip' => '198703152024',
+            'name' => 'Siti Aminah',
+            'gender' => 'Perempuan',
+            'subject' => 'Jaringan Komputer',
+            'phone' => '081234560002',
+            'status' => 'Aktif',
+        ]
+];
+
+
+        return view('Teachers.index', [
+            'title' => $title,
+            'teachers' => $teachers
+        ]); ;
     }
 
     public function create()
     {
-        return "Menampilkan halaman tambah guru";
+        return view('Teachers.create', [
+            'title' => 'Sistem Sekolah - Catat Guru',
+        ]);
     }
 
     public function store()
@@ -23,12 +51,64 @@ class TeacherController extends Controller
 
     public function show(string $id)
     {
-        return "Menampilkan guru dengan ID: {$id}";
+        $title = 'Sistem Sekolah - Detail Guru';
+        $teachers = [
+        [
+            'id' => 1,
+            'nip' => '198501012024',
+            'name' => 'Budi Santoso',
+            'gender' => 'Laki-Laki',
+            'subject' => 'Akuntansi Dasar',
+            'phone' => '081234560001',
+            'status' => 'Aktif',
+        ],
+        [
+            'id' => 2,
+            'nip' => '198703152024',
+            'name' => 'Siti Aminah',
+            'gender' => 'Perempuan',
+            'subject' => 'Jaringan Komputer',
+            'phone' => '081234560002',
+            'status' => 'Aktif',
+        ]
+];
+
+
+        return view('Teachers.show', [
+            'title' => $title,
+            'teachers' => $teachers
+        ]); 
     }
 
     public function edit(string $id)
     {
-        return "Menampilkan halaman edit guru dengan ID: {$id}";
+        $title = 'Sistem Sekolah - Ubah Guru';
+        $teachers = [
+        [
+            'id' => 1,
+            'nip' => '198501012024',
+            'name' => 'Budi Santoso',
+            'gender' => 'Laki-Laki',
+            'subject' => 'Akuntansi Dasar',
+            'phone' => '081234560001',
+            'status' => 'Aktif',
+        ],
+        [
+            'id' => 2,
+            'nip' => '198703152024',
+            'name' => 'Siti Aminah',
+            'gender' => 'Perempuan',
+            'subject' => 'Jaringan Komputer',
+            'phone' => '081234560002',
+            'status' => 'Aktif',
+        ]
+];
+
+
+        return view('Teachers.edit', [
+            'title' => $title,
+            'teachers' => $teachers
+        ]); 
     }
 
     public function update(string $id)

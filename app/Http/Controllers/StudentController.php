@@ -35,7 +35,9 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('Students.create');
+        return view('Students.create', [
+            'title' => 'Sistem Sekolah - Catat Siswa',
+        ]);
     }
 
     public function store()
