@@ -14,6 +14,15 @@ class CreateController extends Controller
     {
         return view('Classes.create', [
             'title' => 'Sistem Sekolah - Catat Kelas',
+            'majors' => [
+                ['code' => 'AKL'],
+                ['code' => 'TKJ'],
+                ['code' => 'BD'],
+            ],
+            'teachers' => [
+                ['name' => 'Budi Santoso'],
+                ['name' => 'Siti Aminah'],
+            ],
         ]);
     }
 }

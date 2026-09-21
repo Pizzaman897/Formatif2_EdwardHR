@@ -38,21 +38,26 @@
                 <select id="major" name="major"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                     <option value="">Pilih jurusan</option>
-                    <option value="AKL">AKL</option>
-                    <option value="TKJ">TKJ</option>
-                    <option value="BiD">BiD</option>
+                    @foreach ($majors as $major)
+                        <option value="{{ $major['code'] }}">{{ $major['code'] }}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div>
                 <label for="homeroom_teacher"
                     class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Wali Kelas</label>
-                <input type="text" id="homeroom_teacher" name="homeroom_teacher" placeholder="Contoh: Budi"
-                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+                <select id="homeroom_teacher" name="homeroom_teacher"
+                    class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+                    <option value="">Pilih wali kelas</option>
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher['name'] }}">{{ $teacher['name'] }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
-                <a href="{{ route('students.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
+                <a href="{{ route('classes.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
                 <button type="submit"
                     class="bg-[#16213A] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Simpan
                     ke Buku Induk</button>

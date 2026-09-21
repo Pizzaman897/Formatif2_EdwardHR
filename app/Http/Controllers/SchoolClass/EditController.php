@@ -29,10 +29,20 @@ class EditController extends Controller
             'homeroom_teacher' => 'Siti Aminah'
         ]
 ];
+        $class = collect($classes)->firstWhere('id', (int) $id) ?? $classes[0];
 
         return view('Classes.edit', [
             'title' => $title,
-            'classes' => $classes
+            'class' => $class,
+            'majors' => [
+                ['code' => 'AKL'],
+                ['code' => 'TKJ'],
+                ['code' => 'BD'],
+            ],
+            'teachers' => [
+                ['name' => 'Budi Santoso'],
+                ['name' => 'Siti Aminah'],
+            ],
         ]);
     }
 }

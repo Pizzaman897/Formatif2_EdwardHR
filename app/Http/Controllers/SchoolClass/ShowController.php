@@ -29,10 +29,11 @@ class ShowController extends Controller
             'homeroom_teacher' => 'Siti Aminah'
         ]
 ];
+        $class = collect($classes)->firstWhere('id', (int) $id) ?? $classes[0];
 
         return view('Classes.show', [
             'title' => $title,
-            'classes' => $classes
+            'class' => $class
         ]);
     }
 }

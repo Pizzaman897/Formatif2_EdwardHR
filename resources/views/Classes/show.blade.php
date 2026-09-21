@@ -10,9 +10,9 @@
             <div class="flex items-start justify-between border-b border-[#E5E3DB] bg-[#FCFBF8] px-8 py-6">
            
                 <div>
-                    <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Siswa</p>
-                    <h1 class="font-display text-3xl font-semibold text-[#16213A]">Andi</h1>
-                    <p class="mt-1 font-mono text-xs text-slate-500">NIS 2210001</p>
+                    <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Detail Kelas</p>
+                    <h1 class="font-display text-3xl font-semibold text-[#16213A]">{{ $class['name'] }}</h1>
+                    <p class="mt-1 font-mono text-xs text-slate-500">Tingkat {{ $class['grade'] }}</p>
                 </div>
 
                 <a href="#"
@@ -21,29 +21,25 @@
 
             <dl class="divide-y divide-[#EFEDE6] text-sm">
                 <div class="flex justify-between px-8 py-4">
-                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">NIS</dt>
-                    <dd class="font-medium text-[#16213A]">2210001</dd>
+                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama Kelas</dt>
+                    <dd class="font-medium text-[#16213A]">{{ $class['name'] }}</dd>
                 </div>
                 <div class="flex justify-between px-8 py-4">
-                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama Lengkap</dt>
-                    <dd class="font-medium text-[#16213A]">Andi</dd>
-                </div>
-                <div class="flex justify-between px-8 py-4">
-                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Jenis Kelamin</dt>
-                    <dd class="font-medium text-[#16213A]">KYKNYA CWK</dd>
+                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Tingkat Kelas</dt>
+                    <dd class="font-medium text-[#16213A]">{{ $class['grade'] }}</dd>
                 </div>
                 <div class="flex justify-between px-8 py-4">
                     <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Jurusan</dt>
-                    <dd class="font-medium text-[#16213A]">TKJ</dd>
+                    <dd class="font-medium text-[#16213A]">{{ $class['major'] }}</dd>
                 </div>
                 <div class="flex justify-between px-8 py-4">
-                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Kelas</dt>
-                    <dd class="font-medium text-[#16213A]">XII TKJ 3</dd>
+                    <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Wali Kelas</dt>
+                    <dd class="font-medium text-[#16213A]">{{ $class['homeroom_teacher'] }}</dd>
                 </div>
             </dl>
 
             <div class="flex justify-end gap-4 border-t border-[#E5E3DB] px-8 py-5">
-                <a href="" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
+                <a href="{{ route('classes.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Kembali</a>
                 <form action="" method="POST" onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
                     @csrf
                     @method('DELETE')
