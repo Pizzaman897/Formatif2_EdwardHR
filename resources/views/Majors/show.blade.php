@@ -11,26 +11,26 @@
            
                 <div>
                     <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Jurusan</p>
-                    <h1 class="font-display text-3xl font-semibold text-[#16213A]">TKJ</h1>
-                    <p class="mt-1 font-mono text-xs text-slate-500">Teknik Komputer dan Jaringan</p>
+                    <h1 class="font-display text-3xl font-semibold text-[#16213A]">{{ $major['code'] }}</h1>
+                    <p class="mt-1 font-mono text-xs text-slate-500">{{ $major['name'] }}</p>
                 </div>
 
-                <a href="#"
+                <a href="{{ route('majors.edit', ['major' => $major['id']]) }}"
                     class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Ubah</a>
             </div>
 
             <dl class="divide-y divide-[#EFEDE6] text-sm">
                 <div class="flex justify-between px-8 py-4">
                     <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Code</dt>
-                    <dd class="font-medium text-[#16213A]">TKJ</dd>
+                    <dd class="font-medium text-[#16213A]">{{ $major['code'] }}</dd>
                 </div>
                 <div class="flex justify-between px-8 py-4">
                     <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama</dt>
-                    <dd class="font-medium text-[#16213A]">Teknik Komputer dan Jaringan</dd>
+                    <dd class="font-medium text-[#16213A]">{{ $major['name'] }}</dd>
                 </div>
                 <div class="flex justify-between px-8 py-4">
                     <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Deskripsi</dt>
-                    <dd class="font-medium text-[#16213A]">Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.</dd>
+                    <dd class="font-medium text-[#16213A]">{{ $major['description'] }}</dd>
                 </div>
             </dl>
 

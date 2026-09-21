@@ -14,6 +14,7 @@ class StudentController extends Controller
                 'id' => 1,
                 'nis' => '22100001',
                 'name' => 'Andi',
+                'gender' => 'Laki-laki',
                 'class' => 'XII TKJ 3',
                 'major' => 'TKJ',
             ],
@@ -22,6 +23,7 @@ class StudentController extends Controller
                 'id' => 2,
                 'nis' => '22100002',
                 'name' => 'Budi',
+                'gender' => 'Laki-laki',
                 'class' => 'XII AKL 1',
                 'major' => 'AKL',
             ],
@@ -53,6 +55,7 @@ class StudentController extends Controller
                 'id' => 1,
                 'nis' => '22100001',
                 'name' => 'Andi',
+                'gender' => 'Laki-laki',
                 'class' => 'XII TKJ 3',
                 'major' => 'TKJ',
             ],
@@ -61,14 +64,16 @@ class StudentController extends Controller
                 'id' => 2,
                 'nis' => '22100002',
                 'name' => 'Budi',
+                'gender' => 'Laki-laki',
                 'class' => 'XII AKL 1',
                 'major' => 'AKL',
             ],
         ];
+        $student = collect($students)->firstWhere('id', (int) $id) ?? $students[0];
 
         return view('Students.show', [
             'title' => $title,
-            'students' => $students
+            'student' => $student
         ]);
     }
 

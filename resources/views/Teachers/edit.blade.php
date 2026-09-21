@@ -5,22 +5,22 @@
 @section('content')
 
 <div class="mb-8 border-b border-[#E5E3DB] pb-5">
-    <a href="#" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
+    <a href="{{ route('teachers.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
         Induk</a>
     <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Ubah Data Guru</h1>
-    <p class="mt-1 text-sm text-slate-500">Memperbarui catatan atas nama <span class="font-medium text-[#16213A]">Nama Guru</span>.</p>
+    <p class="mt-1 text-sm text-slate-500">Memperbarui catatan atas nama <span class="font-medium text-[#16213A]">{{ $teacher['name'] }}</span>.</p>
 </div>
 
 <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
     <div>
         <label for="nip" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIP</label>
-        <input type="text" id="nip" name="nip" value="123456789"
+        <input type="text" id="nip" name="nip" value="{{ $teacher['nip'] }}"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
     </div>
     <div>
         <label for="name" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nama
             Lengkap</label>
-        <input type="text" id="name" name="name" value="Nama Guru"
+        <input type="text" id="name" name="name" value="{{ $teacher['name'] }}"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
     </div>
     <div>
@@ -28,27 +28,27 @@
             Kelamin</label>
         <select id="gender" name="gender"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-            <option value="L" selected>Laki-laki</option>
-            <option value="P">Perempuan</option>
+            <option value="L" @selected($teacher['gender'] === 'Laki-Laki')>Laki-laki</option>
+            <option value="P" @selected($teacher['gender'] === 'Perempuan')>Perempuan</option>
         </select>
     </div>
 
     <div>
         <label for="subject" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Mata Pelajaran</label>
-        <input type="text" id="subject" name="subject" value="Matematika"
+        <input type="text" id="subject" name="subject" value="{{ $teacher['subject'] }}"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
     </div>
     <div>
         <label for="phone" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">No HP</label>
-        <input type="text" id="phone" name="phone_number" value="081234567890"
+        <input type="text" id="phone" name="phone_number" value="{{ $teacher['phone'] }}"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
     </div>
     <div>
         <label for="status" class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Status</label>
         <select id="status" name="status"
             class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-            <option value="Aktif" selected>Aktif</option>
-            <option value="Tidak Aktif">Tidak Aktif</option>
+            <option value="Aktif" @selected($teacher['status'] === 'Aktif')>Aktif</option>
+            <option value="Tidak Aktif" @selected($teacher['status'] === 'Tidak Aktif')>Tidak Aktif</option>
         </select>
     </div>
 

@@ -84,10 +84,11 @@ class MajorController extends Controller
             'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
         ],
 ];
+        $major = collect($majors)->firstWhere('id', (int) $id) ?? $majors[0];
  
         return view('Majors.show', [
             'title' => $title,
-            'majors' => $majors
+            'major' => $major
         ]);
 
     }
@@ -118,10 +119,11 @@ class MajorController extends Controller
             'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
         ],
 ];
+        $major = collect($majors)->firstWhere('id', (int) $id) ?? $majors[0];
  
         return view('Majors.edit', [
             'title' => $title,
-            'majors' => $majors
+            'major' => $major
         ]);
 
         }

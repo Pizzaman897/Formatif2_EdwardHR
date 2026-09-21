@@ -104,11 +104,12 @@ class TeacherController extends Controller
             'status' => 'Aktif',
         ]
 ];
+        $teacher = collect($teachers)->firstWhere('id', (int) $id) ?? $teachers[0];
 
 
         return view('Teachers.edit', [
             'title' => $title,
-            'teachers' => $teachers
+            'teacher' => $teacher
         ]); 
     }
 

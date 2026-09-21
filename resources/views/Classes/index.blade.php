@@ -54,7 +54,7 @@
                                 <a href="{{ route('classes.edit', ['id' => $class['id']]) }}" 
                                 class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
                                 <form action="" method="POST"
-                                    onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
+                                    onsubmit="return confirm('Hapus data kelas ini dari buku induk?')">
 
                                     <button type="submit" class="text-red-700 hover:text-red-900">Hapus</button>
                                 </form>
