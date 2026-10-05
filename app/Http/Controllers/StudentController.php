@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Student\StoreRequest;
+use App\Http\Requests\Student\UpdateRequest;
 use App\Models\Student;
-use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -25,19 +26,13 @@ class StudentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //Validasi
-        $validatedrequest = $request->validate([
-            'nis' => ['required', 'string', 'size:4', 'unique:students,nis'],
-            'name' => ['required', 'string'],
-            'gender' => ['required', 'string', 'in:L,P'],
-            'major' => ['required', 'string', 'in:TKJ,AKL,BiD'],
-            'class' => ['required', 'string']
-        ]);
+        $validatedrequest = $request->validated();
 
         //tambahkan data ke database
-        student::create($validatedrequest);
+        Student::create($validatedrequest);
 
         //handle if success
         return redirect()->route('students.index');
@@ -53,26 +48,20 @@ class StudentController extends Controller
         ]);
     }
 
-    public function edit(Student $student, Request $request)
+    public function edit(Student $student)
     {
         $title = "Sistem Sekolah - Ubah Siswa";
-       
+
         return view('Students.edit', [
             'title' => $title,
-            'students' => $student
+            'student' => $student,
         ]);
     }
 
-    public function update(Student $student, Request $request)
+    public function update(Student $student, UpdateRequest $request)
     {
         //Validasi
-        $validatedrequest = $request->validate([
-            'nis' => ['required', 'string', 'size:4', 'unique:students,nis,' . $student->id],
-            'name' => ['required', 'string'],
-            'gender' => ['required', 'string', 'in:L,P'],
-            'major' => ['required', 'string', 'in:TKJ,AKL,BiD'],
-            'class' => ['required', 'string']
-        ]);
+        $validatedrequest = $request->validated();
 
         //update data
         $student->update($validatedrequest);
