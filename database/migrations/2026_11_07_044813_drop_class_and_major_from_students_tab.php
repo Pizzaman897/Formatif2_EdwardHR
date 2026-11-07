@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('students_tab', function (Blueprint $table) {
+        Schema::table('students', function (Blueprint $table) {
             if (Schema::hasColumn('students_tab', 'class')) {
                 $table->dropColumn('class');
             }
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('students_tab', function (Blueprint $table) {
+        Schema::table('students', function (Blueprint $table) {
             if (! Schema::hasColumn('students_tab', 'major')) {
                 $table->string('major')->after('class');
             }
